@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./includes/head") %>
+</head>
+
+<body class="g-sidenav-show  bg-gray-200">
+    <%- include("./includes/left") %>
+        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+            <!-- Navbar -->
+            <%- include("./includes/header") %>
+                <!-- End Navbar -->
+                <div class="container-fluid py-4 ">
+                    <h3>Add New Book</h3>
+                    <form action="/action_page.php">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="name">Books Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Books Name" id="email">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="pwd">Book Price</label>
+                                    <input type="text" class="form-control" placeholder="Enter Book Price" id="pwd">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="pwd">Author</label>
+                                    <input type="text" class="form-control" placeholder="Enter Author Name" id="pwd">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="pwd">Published On</label>
+                                    <input type="date" class="form-control" placeholder="Enter Publishing Date"
+                                        id="pwd">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="pwd">Show In Latest Books</label>
+                                   <select name="latest" id="" class="form-control">
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                   </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="pwd">Show In Best Seller</label>
+                                    <select name="best" id="" class="form-control">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                       </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="pwd">Status</label>
+                                    <select name="status" id="" class="form-control">
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                       </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pwd">Book Image</label>
+                            <input type="file" class="form-control" name="image">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Click Here To Submit</button>
+                        <input type="reset" value="reset" class="btn btn-danger">
+                    </form>
+                </div>
+        </main>
+
+        <!--   Core JS Files   -->
+        <%- include("./includes/footer") %>
+</body>
+
+</html>
