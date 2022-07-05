@@ -2,8 +2,8 @@ import React from 'react';
 import {bestSeller} from "../../Data/Data";
 import { useSelector,useDispatch } from 'react-redux';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import {addToCart} from "../../Redux/Action/Action";
+import { Swiper, SwiperSlide } from "swiper/react"; 
+import { updateCartItem } from "../../Redux/Action/Action";
 
 // Import Swiper styles
 import "swiper/css";
@@ -11,8 +11,16 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 
 function BestSeller() {
-    const myState=useSelector((state)=>state.addToCart);
-    const disptch=useDispatch();
+    const myState=useSelector((state)=>state.addToCart); // call reducer function here.... it will return current state
+    const dispatch=useDispatch();
+
+    function cartHandler(books)
+    {
+        dispatch(updateCartItem(books));
+        console.log(myState);
+        alert("add to cart success");
+    }
+
     return (
         <>
 
@@ -36,7 +44,7 @@ function BestSeller() {
                                             <h4 className="card-title">{books.book_name}</h4>
                                             <h6>Author : {books.author}</h6>
                                             <h3>$ {books.price}</h3>
-                                        <button onClick={()=>disptch(addToCart(books))} class="btn-warning mt-2">Add To Cart : <i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
+                                        <button onClick={()=>cartHandler(books)} class="btn-warning mt-2">Add To Cart : <i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
                                         </div>
                                     </div>
                                 </SwiperSlide>
