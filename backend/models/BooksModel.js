@@ -8,7 +8,7 @@ const BooksSchema=mongoose.Schema({
     show_in_latest:String,
     show_in_best_seller:String,
     status:String,
-    publish_on:Date
+    publish_on:String
 });
 
 module.exports=mongoose.model("books",BooksSchema);

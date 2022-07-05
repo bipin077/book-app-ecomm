@@ -13,67 +13,73 @@
                 <!-- End Navbar -->
                 <div class="container-fluid py-4 ">
                     <h3>Add New Book</h3>
-                    <form action="/action_page.php">
+                    <form action="/api/books" method="post" enctype="multipart/form-data" id="form-submit">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">Books Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Books Name" id="email">
+                                    <input type="text" class="form-control" id="book_name" name="book_name"
+                                        placeholder="Enter Books Name">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="pwd">Book Price</label>
-                                    <input type="text" class="form-control" placeholder="Enter Book Price" id="pwd">
+                                    <input type="text" id="price" class="form-control" name="book_price"
+                                        placeholder="Enter Book Price" id="pwd">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="pwd">Author</label>
-                                    <input type="text" class="form-control" placeholder="Enter Author Name" id="pwd">
+                                    <input type="text" id="author" class="form-control" name="author"
+                                        placeholder="Enter Author Name" id="pwd">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="pwd">Published On</label>
-                                    <input type="date" class="form-control" placeholder="Enter Publishing Date"
-                                        id="pwd">
+                                    <input type="date" name="publish_on" id="publish_on" class="form-control"
+                                        placeholder="Enter Publishing Date" id="pwd">
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="pwd">Show In Latest Books</label>
-                                   <select name="latest" id="" class="form-control">
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
-                                   </select>
+                                    <select name="show_in_latest" id="show_in_latest" class="form-control">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="pwd">Show In Best Seller</label>
-                                    <select name="best" id="" class="form-control">
+                                    <select name="show_in_best_seller" id="show_in_best_seller" class="form-control">
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-                                       </select>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="pwd">Status</label>
-                                    <select name="status" id="" class="form-control">
+                                    <select name="status" id="status" class="form-control">
                                         <option value="Active">Active</option>
                                         <option value="Inactive">Inactive</option>
-                                       </select>
+                                    </select>
                                 </div>
                             </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="pwd">Book Image</label>
+                                    <input type="file" class="form-control" name="book_image" id="book_image">
+                                </div>
+                            </div>
+
                         </div>
 
-                        <div class="form-group">
-                            <label for="pwd">Book Image</label>
-                            <input type="file" class="form-control" name="image">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Click Here To Submit</button>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">Click Here To Submit</button>
                         <input type="reset" value="reset" class="btn btn-danger">
                     </form>
                 </div>
@@ -81,6 +87,33 @@
 
         <!--   Core JS Files   -->
         <%- include("./includes/footer") %>
+            <script>
+                $('#submit-btn').on('click', (e) => {
+                    e.preventDefault();
+
+                    let book_name = $('#book_name').val();
+                    let price = $('#price').val();
+                    let author = $('#author').val();
+                    let publish_on = $('#publish_on').val();
+                    let show_in_latest = $('#show_in_latest').val();
+                    let show_in_best_seller = $('#show_in_latest').val();
+                    let status = $('#status').val();
+                    let book_image = $('#book_image').val();
+
+                    $.ajax({
+                        url: 'http://localhost:8000/api/books',
+                        type: 'POST',
+                        // cache:false,
+                        // processData: false,
+                        'contentType': 'application/json',
+                        data: JSON.stringify({ book_name: book_name, book_image: book_image, book_price: price, author: author, show_in_latest: show_in_latest, status: status, show_in_best_seller: show_in_best_seller, publish_on: publish_on }),
+                        success: function (data) {
+                            alert("Book Inserted Successfully");
+                        }
+                    })
+
+                });
+            </script>
 </body>
 
 </html>

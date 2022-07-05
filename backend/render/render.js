@@ -29,7 +29,24 @@ const addBook=(req,res)=>
 
 const updateBook=(req,res)=>
 {
-    res.render("edit-book");
+    axios.get("http://localhost:8000/api/books",{params:{id:req.query.id}})
+    .then((userData)=>{
+        res.render("edit-book",{user:userData.data});
+    })
+    .catch((error)=>{
+        res.send(error);
+    })
+    
+}
+
+const deleteBook=async (req,res)=>
+{
+    let id=req.params.id;
+    await axios.delete("http://localhost:8000/api/books/",{params:id})
+    .then((result)=>
+    {
+        res.send(result.data);
+    })
 }
 
 
@@ -45,6 +62,7 @@ module.exports= {
     updateBook,
     viewBanner,
     indexView,
-    loginUser
+    loginUser,
+    deleteBook
 
 }

@@ -18,33 +18,64 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">Books Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Books Name" id="email">
+                                    <input type="text" class="form-control" id="book_name" name="book_name"
+                                        placeholder="Enter Books Name" value="<%= user.book_name %>">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="pwd">Book Price</label>
-                                    <input type="text" class="form-control" placeholder="Enter Book Price" id="pwd">
+                                    <input type="text" id="price" class="form-control" name="book_price"
+                                        placeholder="Enter Book Price" id="pwd">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="pwd">Author</label>
-                                    <input type="text" class="form-control" placeholder="Enter Author Name" id="pwd">
+                                    <input type="text" id="author" class="form-control" name="author"
+                                        placeholder="Enter Author Name" id="pwd">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="pwd">Published On</label>
-                                    <input type="date" class="form-control" placeholder="Enter Publishing Date"
-                                        id="pwd">
+                                    <input type="date" name="publish_on" id="publish_on" class="form-control"
+                                        placeholder="Enter Publishing Date" id="pwd">
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="pwd">Book Image</label>
-                            <input type="file" class="form-control" name="image">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="pwd">Show In Latest Books</label>
+                                    <select name="show_in_latest" id="show_in_latest" class="form-control">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="pwd">Show In Best Seller</label>
+                                    <select name="show_in_best_seller" id="show_in_best_seller" class="form-control">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="pwd">Status</label>
+                                    <select name="status" id="status" class="form-control">
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="pwd">Book Image</label>
+                                    <input type="file" class="form-control" name="book_image" id="book_image">
+                                </div>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Click Here To Update</button>
                         <input type="reset" value="reset" class="btn btn-danger">

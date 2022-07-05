@@ -1,7 +1,9 @@
 import React from 'react';
 import {bestSeller} from "../../Data/Data";
+import { useSelector,useDispatch } from 'react-redux';
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import {addToCart} from "../../Redux/Action/Action";
 
 // Import Swiper styles
 import "swiper/css";
@@ -9,6 +11,8 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 
 function BestSeller() {
+    const myState=useSelector((state)=>state.addToCart);
+    const disptch=useDispatch();
     return (
         <>
 
@@ -32,7 +36,7 @@ function BestSeller() {
                                             <h4 className="card-title">{books.book_name}</h4>
                                             <h6>Author : {books.author}</h6>
                                             <h3>$ {books.price}</h3>
-                                        <button class="btn-warning mt-2">Add To Cart : <i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
+                                        <button onClick={()=>disptch(addToCart(books))} class="btn-warning mt-2">Add To Cart : <i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
                                         </div>
                                     </div>
                                 </SwiperSlide>

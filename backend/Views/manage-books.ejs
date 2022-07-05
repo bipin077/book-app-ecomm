@@ -21,30 +21,30 @@
                     <table class="table table-striped text-center">
                         <thead>
                             <tr>
-                                <th>S.No.</th>
-                                <th>Image</th>
-                                <th>Book Name</th>
-                                <th>Author</th>
-                                <th>Price</th>
-                                <th>Published On</th>
-                                <th>Status</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                                <th><input type="checkbox"></th>
+                                <th width="1%">S.No.</th>
+                                <th width="1%">Image</th>
+                                <th width="1%">Book Name</th>
+                                <th width="1%">Author</th>
+                                <th width="1%">Price</th>
+                                <th width="1%">Published On</th>
+                                <th width="1%">Status</th>
+                                <th width="1%">Edit</th>
+                                <th width="1%">Delete</th>
+                                <th width="1%"><input type="checkbox"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <% for(i=0;i<books.length; i++){%>
                             <tr>
-                                <td><%= i+1 %></td>
-                                <td><%= books[i].book_image %></td>
-                                <td><%= books[i].book_name %></td>
-                                <td><%= books[i].author %></td>
-                                <td>$ <%= books[i].book_price %></td>
-                                <td><%= books[i].publish_on %></td>
-                                <td><%= books[i].status %></td>
-                                <td><a href="/edit-book"><i class="fa fa-pencil-square-o"></i></a></td>
-                                <td><a href="/delete-books"><i class="fa fa-trash-o" ></i></a></td>
+                                <td width="1%"><%= i+1 %></td>
+                                <td width="1%"><%= books[i].book_image %></td>
+                                <td width="1%"><%= books[i].book_name %></td>
+                                <td width="1%"><%= books[i].author %></td>
+                                <td width="1%">$ <%= books[i].book_price %></td>
+                                <td width="1%"><%= books[i].publish_on %></td>
+                                <td width="1%"><%= books[i].status %></td>
+                                <td width="1%"><a href="/edit-book?id=<%= books[i]._id %>"><i class="fa fa-pencil-square-o"></i></a></td>
+                                <td width="1%"><a href="/delete-book/<%= books[i]._id %>"><i class="fa fa-trash-o" ></i></a></td>
                                 <th><input type="checkbox"></th>
                             </tr>
                             <% } %>

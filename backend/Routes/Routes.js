@@ -10,6 +10,7 @@ router.get("/login",render.loginUser);
 router.get("/manage-books",render.manageBooks);
 router.get("/add-book",render.addBook);
 router.get("/edit-book",render.updateBook);
+router.get("/delete-book/:id",render.deleteBook);
 
 // banner routes
 

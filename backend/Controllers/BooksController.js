@@ -3,10 +3,22 @@ require("../Database/connection");
 
 const getAllBooks=async (req,res)=>
 {
-    const books=await Books.find();
-    res.send(books);
+    if(req.query.params)
+    {
+        const books=await Books.findById(req.query.id);
+        res.send(books);
+    }
+    else
+    {
+        const books=await Books.find();
+        res.send(books);
+    }
+    
 }
+
+
 const insertBook=async (req,res)=>{
+    console.log(req.body);
     let books=new Books(req.body);
     let result=await books.save();
     res.send(result);

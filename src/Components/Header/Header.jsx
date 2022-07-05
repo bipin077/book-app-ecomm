@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {useSelector,useDispatch} from 'react-redux';
 
 function Header() {
+    const state=useSelector((state)=>state.addToCart);
     return (
         <>
             <div className="top-header d-flex justify-content-between bg-success text-light p-1 text-center">
@@ -13,7 +15,7 @@ function Header() {
                     <Link to="/login"><li className='list-inline-item'>Login</li></Link> | 
                     <Link to="/signup"><li className='list-inline-item ps-2'>Sign Up</li></Link>
 
-                        <li className='list-inline-item ps-4'>Cart(0)</li>
+                        <li className='list-inline-item ps-4'>Cart({state})</li>
                     </ul>
                 </div>
             </div>
