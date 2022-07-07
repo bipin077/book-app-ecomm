@@ -1,17 +1,8 @@
-<<<<<<< HEAD
-let initialState=0;
-const addToCart=(state=initialState,action)=>
-{
-    switch(action.type)
-    {
-        case "ADDTOCART":
-            return state=state+action.payload;
-=======
-const initialState={ 
-    cart: [],
+let initialState={
+    cart:[],
     totalItems:0,
     totalPrice:0
-}
+};
 const addToCart=(state =initialState ,action)=>
 {
     switch(action.type)
@@ -21,8 +12,6 @@ const addToCart=(state =initialState ,action)=>
             if(state.totalItems>0)
             {
                 const index = state.cart.findIndex(it => it.id === item.id);
->>>>>>> 9c131f6b0a5714f98d0ee501e294a8dd1cad7f51
-
                 const newItems = [...state.cart];
                 if(index!==-1)
                 {
