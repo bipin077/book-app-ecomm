@@ -4,6 +4,9 @@ import Home from "./Components/Home/Home";
 import Footer from "./Components/Footer/Footer";
 import Cart from "./Components/Cart/Cart";
 import {BrowserRouter,Routes,Route} from "react-router-dom";
+import About from "./Components/About/About";
+import Products from "./Components/Products/Products";
+import Contact from "./Components/Contact/Contact";
 
 
 function App() {
@@ -13,8 +16,10 @@ function App() {
     <Header />
       <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/about" element={<h1>about us</h1>}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/books" element={<Products />}></Route>
+          <Route path="/books" element={<Products />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
