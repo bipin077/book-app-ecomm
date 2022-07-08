@@ -5,6 +5,9 @@ import { useSelector,useDispatch } from 'react-redux';
 import { Swiper, SwiperSlide } from "swiper/react"; 
 import { updateCartItem } from "../../Redux/Action/Action";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -18,7 +21,7 @@ function BestSeller() {
     {
         dispatch(updateCartItem(books));
         console.log(myState);
-        alert("add to cart success");
+        toast("Book Added In your Cart Successfully");
     }
 
     return (
@@ -27,24 +30,37 @@ function BestSeller() {
             <div className="container mt-3">
                 <h2 className='text-center'>Best Selling Books</h2>
                 <Swiper
-                    slidesPerView={3}
+                    slidesPerView={1}
                     spaceBetween={0}
                     pagination={{
-                        clickable: true,
+                    clickable: true,
+                    }}
+                    breakpoints={{
+                    640: {
+                        slidesPerView: 1,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
                     }}
                     modules={[Pagination]}
                     className="mySwiper"
                 >
-                    <div className="latest-books d-flex">
+                    <div className="latest-books">
                             { bestSeller.map((books)=>
                                 <SwiperSlide>
-                                    <div className="card bg-success text-light m-2 text-center">
-                                        <img className="card-img-top" src={books.image} alt="Card image" style={{ 'height':'200px','width':'100%'}}/>
-                                        <div className="card-body">
-                                            <h4 className="card-title">{books.book_name}</h4>
-                                            <h6>Author : {books.author}</h6>
-                                            <h3>$ {books.price}</h3>
-                                            <button onClick={()=>cartHandler(books)} class="btn-warning mt-2">Add To Cart : <i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
+                                    <div>
+                                        <div className='card bg-success text-light m-2 text-center'>
+                                            <img className="card-img-top" src={books.image} alt="Card image" style={{ 'height':'200px','width':'100%'}}/>
+                                            <div className="card-body">
+                                                <h5 className="card-title">{books.book_name}</h5>
+                                                <h6>Author : {books.author}</h6>
+                                                <h3>$ {books.price}</h3>
+                                                <button onClick={()=>cartHandler(books)} class="btn-warning mt-2">Add To Cart : <i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </SwiperSlide>
@@ -52,7 +68,14 @@ function BestSeller() {
                     </div>
                 </Swiper>
             </div>
-
+            <ToastContainer position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable />
         </>
     )
 }

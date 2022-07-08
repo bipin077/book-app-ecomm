@@ -10,35 +10,48 @@ function Contact() {
                         <li className="breadcrumb-item active" aria-current="page">Contact Us</li>
                     </ol>
                 </nav>
-                <div className="row">
-                    <div className="col-sm-6 p-5">
-                        <ul>
-                            <li>Address</li>
-                            <li>Phone No</li>
-                            <li>Email</li>
-                        </ul>
+                <section className="home-section new-cls">
+                    <div className="section-heading text-center m-4">
+                        <h2>Get in touch</h2>
+                        <div className="hr"></div>
                     </div>
-                    <div className="col-sm-6">
-                        <div class="form-group">
-                            <label for="email">Yoour Name</label>
-                            <input type="text" class="form-control" placeholder="Enter email" id="email" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email address:</label>
-                            <input type="email" class="form-control" placeholder="Enter email" id="email" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Phone</label>
-                            <input type="tel" class="form-control" placeholder="Enter email" id="email" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Message</label>
-                            <textarea name="" id="" class="form-control" cols="30" rows="3"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                    </div>
-                </div>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-4 col-sm-6 wow fadeInLeft animated">
+                                <div className="padd_white">
+                                    <h4 className="text-success">Information</h4>
+                                    <p>Contact for additional information:</p>
+                                    <p><i className="fa fa-envelope"></i>  <a href="mailto:info@bookstore.com">info@bookstore.com</a></p>
+                                    <p><i className="fa fa-phone"></i>  <a href="tel:9927948007">9927948007</a></p>
+                                    <h4>Location</h4>
+                                    <p><i className="fa fa-map-marker"></i> We are located at : </p>
+                                    <p> New Pachim Bihar, Moti lal nehru road, railway station, Delhi - 110033</p>
+                                </div>
+                            </div>
+                        
+                            <div className="col-md-8 col-sm-6 col-xs-12 wow fadeInLeft animated"  >
+                                <form method="post">
+                                    <div className="form-style row" id="contact_form">
+                                        <div id="contact_results"></div>
+                                            <div className="form-group col-sm-6">
+                                            <input type="text" name="name" className="form-control input-field" placeholder="Name" required="" />
+                                        </div>
+                                        
+                                        <div className="form-group col-sm-6">
+                                        <input type="text" name="phone" className="form-control input-field" placeholder="Contact No." required="" />
+                                        </div>
+                                        <div className="form-group col-sm-12">
+                                        <input type="email" name="email" className="form-control input-field" placeholder="Email ID" required="" />
+                                        </div>
+                                        <div className="form-group col-sm-12">
+                                        <button type="submit" value="Submit" name="submitmsg" className="btn btn-default">Send Message</button>
+                                        </div>				
+                                    </div>
+                                </form>
+                            </div>
+                        </div>	  
+                    </div>   
+                </section>
             </div>
         </>
     )

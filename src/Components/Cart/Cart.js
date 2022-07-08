@@ -2,6 +2,10 @@ import React from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import {remove_cart_item} from "../../Redux/Action/Action";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import "./Cart.css";
+
 function Cart() {
     const books = useSelector((books) => books.addToCart);
     const dispatch=useDispatch();
@@ -9,7 +13,7 @@ function Cart() {
         <>
             <div className='container mt-5'>
                 <div className='row'>
-                    <div className='col-sm-9'>
+                    <div className='col-12 col-sm-12 col-md-9 col-lg-9'>
                         <h4>There Are {books.totalItems} books in your cart.</h4>
                         <table className="table text-center">
                             <thead>
@@ -40,13 +44,14 @@ function Cart() {
                             </tbody>
                         </table>
                     </div>
-                    <div className='col-sm-3 text-center mt-5'>
+                    <div className='col-12 col-sm-12 col-md-3 col-lg-3 text-center mt-5'>
                         <h4>Total Items : {books.totalItems}</h4>
                         <h2><code>${books.totalPrice}</code></h2>
-                        <button className='btn btn-success ps-5 pe-5 mt-3'><i class="fa fa-shopping-bag" aria-hidden="true"></i>  Buy Now</button>
+                        <button className='btn btn-success mt-3 btn-buy'><i class="fa fa-shopping-bag" aria-hidden="true"></i>  Buy Now</button>
                     </div>
                 </div>
             </div>
+            <ToastContainer />
 
         </>
     )

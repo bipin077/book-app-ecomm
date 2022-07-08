@@ -26,7 +26,7 @@ function Products() {
         </nav>
         <div className="row">
           {books ? books.map((book) =>
-            <div className="col-sm-3 mt-3 text-center">
+            <div className="col-sm-6 col-12 col-md-4 col-lg-3 mt-3 text-center">
               <div className="card">
                 <img className="card-img-top" src={book.image} style={{ 'width': '100%', 'height': '200px' }} alt="Card image cap" />
                 <div className="card-body">

@@ -1,0 +1,21 @@
+
+@media only screen and (max-width:770px)
+{
+    .carousel-inner .carousel-item img
+    {
+        width: 100% !important;
+        height:230px !important;
+    }
+
+    /* .whychooseus .cart-whychoose */
+}
+
+@media only screen and (max-width:425px)
+{
+    .carousel-inner .carousel-item img
+    {
+        width: 100% !important;
+        height:150px !important;
+    }
+}
+
