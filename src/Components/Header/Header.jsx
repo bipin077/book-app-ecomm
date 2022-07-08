@@ -4,7 +4,6 @@ import {useSelector} from 'react-redux';
 
 function Header() {
     const myState=useSelector((state)=>state.addToCart);
-    
     return (
         <>
             <div className="top-header d-flex justify-content-between bg-success text-light p-1 text-center">

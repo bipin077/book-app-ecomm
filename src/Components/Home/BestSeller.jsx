@@ -44,7 +44,7 @@ function BestSeller() {
                                             <h4 className="card-title">{books.book_name}</h4>
                                             <h6>Author : {books.author}</h6>
                                             <h3>$ {books.price}</h3>
-                                        <button onClick={()=>cartHandler(books)} class="btn-warning mt-2">Add To Cart : <i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
+                                            <button onClick={()=>cartHandler(books)} class="btn-warning mt-2">Add To Cart : <i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
                                         </div>
                                     </div>
                                 </SwiperSlide>
