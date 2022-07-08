@@ -1,0 +1,21 @@
+.padd_white {
+    padding: 30px;
+    background: #fff;
+}
+
+.information{
+    border: 2px solid gray;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.about-heading{
+    color: red;
+    border-bottom: 2px solid rgb(187, 179, 179);
+    padding-bottom: 10px;
+}
+
+span{
+    font-size: 25px;
+    color: black;
+}

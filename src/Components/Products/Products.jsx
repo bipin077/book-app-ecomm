@@ -3,6 +3,9 @@ import { latestBooks } from "../../Data/Data";
 import {useSelector,useDispatch} from "react-redux";
 import {updateCartItem} from "../../Redux/Action/Action";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Products() {
   const [books, setBooks] = useState(latestBooks);
 
@@ -12,7 +15,7 @@ function Products() {
   function cartHandler(item)
   {
       dispatch(updateCartItem(item));
-      alert("Add To Cart success");
+      toast("Book Added In your Cart Successfully");
   }
 
   return (
@@ -42,6 +45,14 @@ function Products() {
           ) : 'no books found '}
         </div>
       </div>
+      <ToastContainer position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable />
     </>
   )
 }
